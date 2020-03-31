@@ -1,0 +1,10 @@
+<div class="card bg-dark text-light" style="width: 18rem;">
+<div class="card-header">پست های اخیر</div>
+ {% for post in latest_posts %}
+    <ul class="list-group list-group-flush">
+         <li class="list-group-item  text-light">
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+        </li>
+    </ul>
+ {% endfor %}
+</div>
