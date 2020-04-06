@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends 'blog/base.html' %}
 {% load jalali_tags i18n %}
+{% block title %} {% trans 'Posts' %} {% endblock %}
 {% block content %}
     <div class="jumbotron align-right container" dir="rtl">
         {% for post in page_obj %}
@@ -13,7 +14,7 @@
 {#                    {% if not forloop.last %}, {% endif %}#}
 {#                    {% endfor %}#}
 {#                </p>#}
-                <a class="btn btn-info" href="{{ post.get_absolute_url }}"> {% trans 'Coninue reading' %}</a>
+                <a class="btn btn-info" href="{{ post.get_absolute_url }}"> {% trans 'Continue reading' %}</a>
                 <br>
               </div>
             </div><br>

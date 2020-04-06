@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'blog/base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Success' %}{% endblock %}
+{% block content %}
     <h1>Save chenges successfully</h1>
-</body>
-</html>
+{% endblock %}

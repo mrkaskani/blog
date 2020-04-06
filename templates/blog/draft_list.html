@@ -1,5 +1,6 @@
-<!DOCTYPE html>
 {% extends 'blog/base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Draft' %} {% endblock %}
 {% block content %}
     <div class="jumbotron container">
         {% for post in posts %}

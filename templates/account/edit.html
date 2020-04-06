@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/blog/bootstrap.css' %}">
-</head>
-<body>
+{% extends 'blog/base.html' %}
+{% load i18n %}
+{% block title %}{% trans 'Edit' %}{% endblock %}
+{% block content %}
     <h1 class="text-danger">Edit your account</h1>
     <p>You can edit your account using the following form:</p>
    <form method="post" enctype="multipart/form-data">
@@ -25,5 +20,4 @@
         {% endif %}
       <button type="submit">Save changes</button>
     </form>
-</body>
-</html>
+{% endblock %}

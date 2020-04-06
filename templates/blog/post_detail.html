@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends 'blog/base.html' %}
 {% load jalali_tags social_share blog_tags i18n %}
+{% block title %}{{ post_detail.title }}{% endblock %}
 {% block content %}
     <div class="jumbotron container">
         <h1 class="vazir_blod ">{{ post_detail.title }}</h1>
