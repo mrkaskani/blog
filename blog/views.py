@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required, permission_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse
 from django.utils import timezone
-from django.core.paginator import Paginator
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from taggit.models import Tag
 from .models import Post, Comment
@@ -24,9 +24,14 @@ def post_list(request, tag_slug=None):
 
     # Add pagination
     paginator = Paginator(object_list, 5)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'blog/post_list.html', {'page_obj': page_obj, 'tags': tags})
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    return render(request, 'blog/post_list.html', {'page_obj': posts, 'tags': tags})
 
 
 def post_detail_view(request, slug):
