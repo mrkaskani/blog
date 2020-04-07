@@ -8,8 +8,10 @@
         <p class="text-muted">{{ post_detail.author.first_name }}
             {{ post_detail.author.last_name }} {{ post_detail.published_at|to_jalali:' %y/%m/%d - %H:%M' }}<br>
         </p>
-        {% if post_detail.image.url %}
+        {% if post_detail.image.url != Null %}
             <img src="{{ post_detail.image.url }}" class="card-img-bottom" alt="{{ post_detail.image.name }}"><br><br><br>
+            {% else %}
+            <p></p>
         {% endif %}
         <p>{{ post_detail.body }}</p> <!-- TODO: fix the permission in a separated mode -->
         {% if user.is_authenticated and perms.blog.delete_post and perms.blog.change_post %}

@@ -5,7 +5,7 @@ from taggit.managers import TaggableManager
 
 
 def post_directory_path(instance, filename):
-    return 'post_{}/{}'.format(instance.title, filename)
+    return f'post_{instance.title}/{filename}'
 
 
 class Post(models.Model):
@@ -13,7 +13,7 @@ class Post(models.Model):
     title = models.CharField(max_length=50)
     slug = models.SlugField(allow_unicode=True, unique=True)
     body = models.TextField()
-    image = models.ImageField(upload_to=post_directory_path)
+    image = models.ImageField(upload_to=post_directory_path, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     published_at = models.DateTimeField(auto_now=True)
