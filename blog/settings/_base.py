@@ -1,5 +1,5 @@
 """
-Django settings for myproject project.
+Django settings for blog project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
@@ -9,7 +9,7 @@ import os
 import json
 import sys
 from django.core.exceptions import ImproperlyConfigured
-from myproject.apps.core.versioning import get_git_changeset_timestamp
+from blog.apps.core.versioning import get_git_changeset_timestamp
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -71,12 +71,12 @@ MIDDLEWARE = [
     'django.middleware.locale.LocaleMiddleware',
 ]
 
-ROOT_URLCONF = 'myproject.urls'
+ROOT_URLCONF = 'blog.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'myproject', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'blog', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -89,7 +89,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'myproject.wsgi.application'
+WSGI_APPLICATION = 'blog.wsgi.application'
 
 
 # Database
@@ -146,7 +146,7 @@ LOCALE_PATHS = [
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'myproject', 'site_static'),
+    os.path.join(BASE_DIR, 'blog', 'site_static'),
 ]
 
 timestamp = get_git_changeset_timestamp(BASE_DIR)
