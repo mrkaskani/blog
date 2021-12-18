@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+{% load jalali_tags social_share blog_tags i18n %}
+{% block title %}{{ post_detail.title }}{% endblock %}
+{% block content %}
+    <div class="jumbotron container">
+        <h1 class="vazir_blod ">{{ post_detail.title }}</h1>
+        <p class="text-muted">{{ post_detail.author.first_name }}
+            {{ post_detail.author.last_name }} {{ post_detail.published_at|to_jalali:' %y/%m/%d - %H:%M' }}<br>
+        </p>
+        {% if post_detail.image.url != Null %}
+            <img src="{{ post_detail.image.url }}" class="card-img-bottom" alt="{{ post_detail.image.name }}"><br><br><br>
+            {% else %}
+            <p></p>
+        {% endif %}
+        <p>{{ post_detail.body }}</p> <!-- TODO: fix the permission in a separated mode -->
+        {% if user.is_authenticated and perms.blog.delete_post and perms.blog.change_post %}
+            <a href="{% url 'blog:post_update' post_detail.slug %}" class="btn btn-warning">{% trans 'Update' %}</a>
+            <a href="{% url 'blog:post_delete' post_detail.slug %}" class="btn btn-danger">{% trans 'Delete' %}</a>
+        {% endif %}
+        <hr>
+        <p>اشتراک گذاری:</p> <!-- TODO: change text to social media's icon -->
+        {% post_to_twitter "{{ object.title }} via @WhiteNorthOwl " object_to_url "Post to twitter!" %}
+        {% post_to_telegram "New Post: {{object.title}}" object_or_url %}
+        {% post_to_facebook object_or_url "Post to Facebook!" %}
+        {% post_to_gplus object_or_url "Post to Google+!" %}
+        {% post_to_linkedin object.title object_or_url "Post to LinkedIn" %}
+        <hr>
+        <!-- tags -->
+        <p>Tags: {% for tag in post_detail.tags.all %}
+            <a href="{% url 'blog:post_list_by_tags' tag.slug %}">{{ tag.name }}</a>
+            {% if not forloop.last %}, {% endif %}
+        {% endfor %}
+        </p>
+
+
+        {% with comments.count as total_comments %}
+            {% blocktrans %}
+               <p><b>Total comment: {{ total_comments }}</b></p>
+            {% endblocktrans %}
+        {% endwith %}
+        {% if user.is_authenticated %}
+            <form action="" method="post" name="comment_form">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><input type="submit" value="{% trans 'Comment' %}"></p>
+        </form>
+        {% endif %}
+        {% for comment in comments %}
+            <p>{% trans 'Author:' %}{{ comment.author.username }}</p>
+            <p>{% trans 'Comment:' %}{{ comment.body }}</p>
+        {% endfor %}
+
+    <div class="container-sm">{% show_latest_posts 5 %} </div>
+    <br><br><br><br><br>
+    </div>
+{% endblock %}
