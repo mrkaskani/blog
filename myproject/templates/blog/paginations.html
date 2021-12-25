@@ -1,23 +1,23 @@
-<!DOCTYPE html>
+{% load i18n %}
 <nav aria-label="Page Navigations">
-    <ul class="pagination justify-content-center" style="flex-direction: row-reverse">
+    <ul style="flex-direction: row-reverse">
         {% if not page_obj.has_previous %}
-             <li class="page-item disabled"><span class="page-link">قبلی</span></li>
+             <li disabled><span>{% trans 'Next' %}</span></li>
         {% else %}
-            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">قبلی</a></li>
+            <li ><a href="?page={{ page_obj.previous_page_number }}">{% trans 'previous' %}</a></li>
         {% endif %}
         {% for i in paginator.page_range %}
             {% if page_obj.number == i %}
                  <li class="page-item active">
-                      <span class="page-link">{{ i }}<span class="sr-only">(current)</span></span>
+                      <span>{{ i }}<span>(current)</span></span>
                 {% else %}
-                 <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+                 <li><a href="?page={{ i }}">{{ i }}</a></li>
             {% endif %}
         {% endfor %}
         {% if not page_obj.has_next %}
-            <li class="page-item disabled"><span class="page-link">بعدی</span></li>
+            <li ><span class="page-link">{% trans 'Next' %}</span></li>
         {% else %}
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">بعدی</a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}">{% trans 'Next' %}</a></li>
         {% endif %}
     </ul>
 </nav>

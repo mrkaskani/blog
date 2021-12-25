@@ -2,12 +2,9 @@
 {% load i18n %}
 {% block title %} {% trans 'Confirm Delete' %} {% endblock %}
 {% block content %}
-    <div class="jumbotron">
         <form action="." method="post">
             {% csrf_token %}
             <p>{% trans 'Do you want to delete post?'%}</p>
-            <input type="submit" value="{% trans 'Yes' %}" class="btn-danger">
-{#            <a class="btn btn-outline-primary" href="{% url 'blog:post_detail ' post.slug %}">{% trans 'Confirm' %}</a>#}
+            <input type="submit" value="{% trans 'Yes' %}">
         </form>
-    </div>
 {% endblock %}

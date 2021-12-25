@@ -3,24 +3,22 @@
 {% load jalali_tags social_share blog_tags i18n %}
 {% block title %}{{ post_detail.title }}{% endblock %}
 {% block content %}
-    <div class="jumbotron container">
-        <h1 class="vazir_blod ">{{ post_detail.title }}</h1>
-        <p class="text-muted">{{ post_detail.author.first_name }}
+        <h1 >{{ post_detail.title }}</h1>
+        <p >{{ post_detail.author.first_name }}
             {{ post_detail.author.last_name }} {{ post_detail.published_at|to_jalali:' %y/%m/%d - %H:%M' }}<br>
         </p>
         {% if post_detail.image.url != Null %}
-            <img src="{{ post_detail.image.url }}" class="card-img-bottom" alt="{{ post_detail.image.name }}"><br><br><br>
+            <img src="{{ post_detail.image.url }}" alt="{{ post_detail.image.name }}"><br><br><br>
             {% else %}
             <p></p>
         {% endif %}
-        <p>{{ post_detail.body }}</p> <!-- TODO: fix the permission in a separated mode -->
+        <p>{{ post_detail.body }}</p>
         {% if user.is_authenticated and perms.blog.delete_post and perms.blog.change_post %}
             <a href="{% url 'blog:post_update' post_detail.slug %}" class="btn btn-warning">{% trans 'Update' %}</a>
             <a href="{% url 'blog:post_delete' post_detail.slug  %}" class="btn btn-danger">{% trans 'Delete' %}</a>
         {% endif %}
         <hr>
-        <p>اشتراک گذاری:</p>
-    
+        <p>{% trans 'Share' %}</p>
         {% post_to_twitter "{{ object.title }} via @WhiteNorthOwl " object_to_url "Post to twitter!" %}
         {% post_to_telegram "New Post: {{object.title}}" object_or_url %}
         {% post_to_facebook object_or_url "Post to Facebook!" %}
@@ -32,7 +30,6 @@
             {% if not forloop.last %}, {% endif %}
         {% endfor %}
         </p>
-
 
         {% with comments.count as total_comments %}
             {% blocktrans %}
@@ -57,5 +54,4 @@
 
 
     <br><br><br><br><br>
-    </div>
 {% endblock %}

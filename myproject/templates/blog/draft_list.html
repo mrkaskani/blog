@@ -2,12 +2,10 @@
 {% load i18n %}
 {% block title %}{% trans 'Draft' %} {% endblock %}
 {% block content %}
-    <div class="jumbotron container">
-        {% for post in posts %}
-            <a href="{{ post.get_absolute_url }}">{{ post.title }}<br></a>
-            <p>{{ post.body|truncatewords:25 }}</p> <br><br><hr>
-        {% endfor %}
-    </div>
+    {% for post in posts %}
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}<br></a>
+        <p>{{ post.body|truncatewords:25 }}</p> <br><br><hr>
+    {% endfor %}
     <!-- ------------------- Pagination -------------------- -->
        {% include "blog/paginations.html" with page=page_obj%}
 {% endblock %}

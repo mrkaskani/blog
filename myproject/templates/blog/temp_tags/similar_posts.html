@@ -1,10 +1,9 @@
-<div class="card bg-dark text-light" style="width: 18rem;">
-    <div class="card-header">پست های مشابه</div>
-    {% for post in similar_post %}
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item  text-light">
-                <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
-            </li>
-        </ul>
-    {% endfor %}
-</div>
+{% load i18n %}
+<div><p>{% trans 'Similar Posts' %}</p></div>
+{% for post in similar_post %}
+<ul>
+    <li>
+        <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+    </li>
+</ul>
+{% endfor %}
