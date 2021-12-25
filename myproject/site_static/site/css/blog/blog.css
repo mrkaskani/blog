@@ -1,0 +1,71 @@
+@font-face {
+    font-family: 'vazir';
+    src: url("vazir-font-v21.2.0"); /* IE9 Compat Modes */
+    src: url("vazir-font-v21.2.0/Vazir.eot?#iefix") format('embedded-opentype'); /* IE6-IE8 */
+    src: url("vazir-font-v21.2.0/Vazir.woff2") format('woff2'); /* Super Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir.woff") format("woff"); /* Pretty Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir.ttf" ) format("truetype"); /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'vazir-black';
+    src: url("vazir-font-v21.2.0"); /* IE9 Compat Modes */
+    src: url("vazir-font-v21.2.0/Vazir-Black.eot?#iefix") format('embedded-opentype'); /* IE6-IE8 */
+    src: url("vazir-font-v21.2.0/Vazir-Black.woff2") format('woff2'); /* Super Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Black.woff") format("woff"); /* Pretty Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Black.ttf" ) format("truetype"); /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'vazir-bold';
+    src: url("vazir-font-v21.2.0"); /* IE9 Compat Modes */
+    src: url("vazir-font-v21.2.0/Vazir-Bold.eot?#iefix") format('embedded-opentype'); /* IE6-IE8 */
+    src: url("vazir-font-v21.2.0/Vazir-Bold.woff2") format('woff2'); /* Super Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Bold.woff") format("woff"); /* Pretty Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Bold.ttf" ) format("truetype"); /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'vazir-light';
+    src: url("vazir-font-v21.2.0"); /* IE9 Compat Modes */
+    src: url("vazir-font-v21.2.0/Vazir-Light.eot?#iefix") format('embedded-opentype'); /* IE6-IE8 */
+    src: url("vazir-font-v21.2.0/Vazir-Light.woff2") format('woff2'); /* Super Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Light.woff") format("woff"); /* Pretty Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Light.ttf" ) format("truetype"); /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'vazir-medium';
+    src: url("vazir-font-v21.2.0"); /* IE9 Compat Modes */
+    src: url("vazir-font-v21.2.0/Vazir-Medium.eot?#iefix") format('embedded-opentype'); /* IE6-IE8 */
+    src: url("vazir-font-v21.2.0/Vazir-Medium.woff2") format('woff2'); /* Super Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Medium.woff") format("woff"); /* Pretty Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Medium.ttf" ) format("truetype"); /* Safari, Android, iOS */
+}
+@font-face {
+    font-family: 'vazir-thin';
+    src: url("vazir-font-v21.2.0"); /* IE9 Compat Modes */
+    src: url("vazir-font-v21.2.0/Vazir-Thin.eot?#iefix") format('embedded-opentype'); /* IE6-IE8 */
+    src: url("vazir-font-v21.2.0/Vazir-Thin.woff2") format('woff2'); /* Super Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Thin.woff") format("woff"); /* Pretty Modern Browsers */
+    src: url("vazir-font-v21.2.0/Vazir-Thin.ttf" ) format("truetype"); /* Safari, Android, iOS */
+}
+.vazir{
+    font-family: vazir, serif;
+}
+.vazir_blod{
+    font-family: vazir-bold, serif;
+}.vazir_black{
+    font-family: vazir-black, serif;
+}.vazir_medium{
+    font-family: vazir-medium, serif;
+}.vazir_thin{
+    font-family: vazir-thin, serif;
+}.vazir_light{
+    font-family: vazir-light, serif;
+}
+ body{
+     background: whitesmoke ;
+ }
+
+ textarea{
+     width: 100px;
+     height: 50px;
+ ;
+ }
