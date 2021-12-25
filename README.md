@@ -1,3 +1,3 @@
-# Django MyProject
+# Django Blog Project
 
-This is a boilerplate for a scalable Django project. To use it, just download the source code and globally replace "myproject" with a meaningful project name. Then start building your apps.
+This project is for learning django and django rest framework
